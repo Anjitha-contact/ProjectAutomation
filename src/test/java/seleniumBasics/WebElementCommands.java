@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class WebElementCommands  extends Base {
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		WebElementCommands webelement =new WebElementCommands ();
@@ -17,23 +18,23 @@ public void handlingElements()
 {
 	driver.navigate().to("https://selenium.qabible.in/simple-form-demo.php");
 	
-	// sendkey()
+	// sendKey()
 	
 	WebElement msgBox =driver.findElement(By.xpath("//input[@id='single-input-field']"));
-	msgBox.sendKeys("Lnput Form");
+	msgBox.sendKeys("Input Form");
 	
 	//click
 	WebElement bttn=driver.findElement(By.xpath("//button[@id='button-one']"));
 	bttn.click();
 	
-	//getText()
+	//getText() to print
 	WebElement msg =driver.findElement(By.xpath("//div[@id='message-one']"));
 	System.out.println(msg.getText());
 	
 	//clear()
-	msgBox.clear();
+	//msgBox.clear();
 	
-	//getCSSvalue()
+	//getCSSvalue() 
 	System.out.println(bttn.getCssValue("background-color"));
 	
 	//getTagNvalueame()

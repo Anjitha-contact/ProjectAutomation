@@ -17,7 +17,7 @@ public class BrowseCommand  extends Base{
 	}
 public void navigationCommand()
 {
-	driver.navigate().to("https://www.amazon.in/");// to navigate different website
+	driver.navigate().to("https://www.amazon.in/");// to navigate different webSite
 	driver.navigate().back();
 	driver.navigate().forward();
 	driver.navigate().refresh();
