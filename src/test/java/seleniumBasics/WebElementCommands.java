@@ -26,6 +26,9 @@ public void handlingElements()
 	//click
 	WebElement bttn=driver.findElement(By.xpath("//button[@id='button-one']"));
 	bttn.click();
+	//is displayed
+	System.out.println(bttn.isDisplayed());
+	
 	
 	//getText() to print
 	WebElement msg =driver.findElement(By.xpath("//div[@id='message-one']"));

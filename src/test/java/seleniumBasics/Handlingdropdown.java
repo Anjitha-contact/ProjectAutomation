@@ -9,8 +9,8 @@ public class Handlingdropdown extends Base {
 	public void handlingdropdown()
 	{
 		driver.navigate().to("https://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
-		WebElement dropdown= driver.findElement(By.id("dropdowm-menu-1"));
-		Select select =new Select(dropdown);
+		WebElement dropdown= driver.findElement(By.id("dropdowm-menu-1")); //webelement naming to perform action 
+		Select select =new Select(dropdown); 
 		
 		//select.selectByIndex(2);
 		//select.selectByValue("python");
