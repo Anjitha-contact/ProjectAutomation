@@ -22,7 +22,7 @@ public class Handlingframes extends Base{
 		
 		driver.navigate().to("https://demoqa.com/frames");
 		List<WebElement> totalFrame=driver.findElements(By.tagName("iframe"));
-		System.out.println(totalFrame.size());
+	  	System.out.println(totalFrame.size());
 		
 		//switchTo().frame() used to bring control of required frame
 		
