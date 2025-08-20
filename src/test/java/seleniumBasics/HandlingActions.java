@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class HandlingActions extends Base{
+public class HandlingActions  extends Base{
 	
 	
 	public void verifyrightClick()

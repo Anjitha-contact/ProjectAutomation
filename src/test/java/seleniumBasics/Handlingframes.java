@@ -13,12 +13,12 @@ public class Handlingframes extends Base{
 	obj.intializeBrowser();
 	obj.frames();
 		
-	}
+	} 
 	
 	
 	public void frames()
 	{
-		//size() used to get total frames
+		   //used to get total frames
 		
 		driver.navigate().to("https://demoqa.com/frames");
 		List<WebElement> totalFrame=driver.findElements(By.tagName("iframe"));

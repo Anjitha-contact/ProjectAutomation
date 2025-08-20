@@ -10,8 +10,8 @@ public class HandlingTables extends Base {
 		driver.navigate().to("https://money.rediff.com/indices/nse");
 		
 		// to get data of entire table
-		//WebElement table=driver.findElement(By.id("dataTable"));
-		//System.out.println(table.getText());
+		WebElement table=driver.findElement(By.id("dataTable"));
+		System.out.println(table.getText());
 		
 		// to get data of a particular row in the table
 		WebElement rowdata=driver.findElement(By.xpath("table[@id=dataTable']/tbody/tr[12]"));
