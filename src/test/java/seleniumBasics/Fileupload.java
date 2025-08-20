@@ -22,6 +22,7 @@ public class Fileupload extends Base{
 		bttn.click();
 		
 	}
+	
 	public void fileuploadUsingRobot() throws AWTException
 	{
 		driver.navigate().to("https://www.ilovepdf.com/pdf_to_word");
@@ -29,28 +30,33 @@ public class Fileupload extends Base{
   bttn.click();
   
   StringSelection s=new StringSelection("C:\\Users\\Abhijeeth\\git\\Selenium-Testing\\AutomationCourse\\src\\main\\resources\\13 (1).pdf");
+  //  StringSelection is a class to copy path
+  
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
-		// s - transparent, null no ownership
+		// s - transferable content, null no ownership
 		Robot robot=new Robot();
-		robot.delay(2500);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease((KeyEvent.VK_ENTER));
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.delay(2500);// waiting time
+		robot.keyPress(KeyEvent.VK_ENTER); // press enter
+		robot.keyRelease((KeyEvent.VK_ENTER));//release enter
+		robot.keyPress(KeyEvent.VK_CONTROL);  // control press
+		robot.keyPress(KeyEvent.VK_V);  // v press
+		robot.keyRelease(KeyEvent.VK_CONTROL); //release control
 		robot.keyRelease(KeyEvent.VK_V);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 	} 
-		
+		 
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		Fileupload upload =new Fileupload();
 		upload.intializeBrowser();
-		//obj.fileuploadUsingSendkeys();
+		
+		upload.fileuploadUsingSendkeys();
+		
 		try {
 			upload.fileuploadUsingRobot();
+			
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
