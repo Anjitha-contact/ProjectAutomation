@@ -10,7 +10,7 @@ public class JvascriptExecuterSample  extends Base{
 	{
 		driver.navigate().to("https://selenium.qabible.in/simple-form-demo.php");
 		WebElement showMessageButton=driver.findElement(By.xpath("//button[@id='button-one']"));
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		JavascriptExecutor js = (JavascriptExecutor)driver;    // Reference created for JavascriptExecutor and pass driver control 
 		js.executeScript("arguments[0].click();", showMessageButton);
 		js.executeScript("window.scrollBy(0,350)", "");
 		js.executeScript("window.scrollBy(0,-350)", "");

@@ -9,12 +9,12 @@ public class Base {
 	public void intializeBrowser()
 	{
 		driver=new ChromeDriver(); //creating object for Browser class
-		driver.get("https://selenium.qabible.in/");
+		driver.get("https://www.saucedemo.com/v1//");
 		driver.manage().window().maximize();// code for maximize
 	}
 public void closeAndQuit()
 {
-	//driver.close(); used for single window
+	
 	//driver.quit(); used for close multiple window
 }
 	public static void main(String[] args) {
