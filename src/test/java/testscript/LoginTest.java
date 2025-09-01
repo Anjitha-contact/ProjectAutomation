@@ -1,20 +1,22 @@
 package testscript;
 
+
+
 import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import automationcore.GrocceryBase;
-import pages.GrocceryLoginPage;
+import automationcore.Base;
+import pages.LoginPage;
 import utilities.GrocceryExcelUtilities;
 
-public class LoginTest extends  GrocceryBase{
+public class LoginTest extends  Base{
 	
 	@Test
 	public void verifyLoginWithValidCredentials() throws IOException {
 		String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
 		String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
-		GrocceryLoginPage login = new GrocceryLoginPage(driver);
+		LoginPage login = new LoginPage(driver);
 		login.enterUserNameonUsernameField(username);
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
@@ -26,7 +28,7 @@ public class LoginTest extends  GrocceryBase{
 	public void verifyLoginWithaInvalidUsernameAndValidPassword() throws IOException {
 		String username = GrocceryExcelUtilities.getStringData(2, 0, "loginsheet");
 		String password = GrocceryExcelUtilities.getStringData(2, 1, "loginsheet");
-		GrocceryLoginPage login = new GrocceryLoginPage(driver);
+		LoginPage login = new LoginPage(driver);
 		login.enterUserNameonUsernameField(username);
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
@@ -38,8 +40,8 @@ public class LoginTest extends  GrocceryBase{
 
 		String username = GrocceryExcelUtilities.getStringData(3, 0, "loginsheet");
 		String password = GrocceryExcelUtilities.getStringData(3, 1, "loginsheet");
-		
-		GrocceryLoginPage login = new GrocceryLoginPage(driver);
+	
+		LoginPage login = new LoginPage(driver);
 		login.enterUserNameonUsernameField(username);
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
@@ -50,7 +52,7 @@ public class LoginTest extends  GrocceryBase{
 	{
 		String username = GrocceryExcelUtilities.getStringData(4, 0, "loginsheet");
 		String password = GrocceryExcelUtilities.getStringData(4, 1, "loginsheet");
-		GrocceryLoginPage login = new GrocceryLoginPage(driver);
+		LoginPage login = new LoginPage(driver);
 		login.enterUserNameonUsernameField(username);
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();

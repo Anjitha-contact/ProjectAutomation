@@ -1,31 +1,51 @@
 package testscript;
 
+
+
 import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import automationcore.GrocceryBase;
+import automationcore.Base;
 import pages.AdminUsersPage;
-import pages.GrocceryLoginPage;
 import pages.HomePage;
+import pages.LoginPage;
 import utilities.GrocceryExcelUtilities;
 
-public class AdminUsersTest  extends GrocceryBase {
+public class AdminUsersTest  extends Base {
+	
 	@Test
-	public void verifywhetherUserIsableToClickOnAdminicon() throws IOException
+	public void verifywhetherUserIsableToClickOnAddNewUser() throws IOException
 	{
 		String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
-			String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
-			GrocceryLoginPage login = new GrocceryLoginPage(driver);
-			login.enterUserNameonUsernameField(username);
-			login.enterPasswordinPasswordField(password);
-			login.clickonRemeberMe();
-			login.clickSigin();
-			HomePage homepage=new HomePage(driver);
-			homepage.clickonadminicon();
-			AdminUsersPage adminuser=new AdminUsersPage(driver);
-			adminuser.clickonadminuser();
-			
-	}
+	String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameonUsernameField(username);
+		login.enterPasswordinPasswordField(password);
+		login.clickonRemeberMe();
+		login.clickSigin();
+		
+		AdminUsersPage adminuser=new AdminUsersPage(driver);
+		adminuser.clickonadminuser();
+		adminuser.newuser();	
+}
+	@Test
+public void verifywhetherUserIsableToClickOnSearchButton() throws IOException
+{
+	String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
+	String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameonUsernameField(username);
+		login.enterPasswordinPasswordField(password);
+		login.clickonRemeberMe();
+		login.clickSigin();
+		
+		AdminUsersPage adminuser=new AdminUsersPage(driver);
+		adminuser.clickonadminuser();
+		adminuser.search();
+		
+		
+}
 
 }
+

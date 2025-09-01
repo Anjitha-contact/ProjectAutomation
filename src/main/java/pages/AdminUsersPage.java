@@ -15,9 +15,19 @@ public AdminUsersPage(WebDriver driver)
 }
 
 @FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer']")private WebElement adminuserbutton;
+@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")private WebElement addnewusericon;
+@FindBy(xpath="//a[@class='btn btn-rounded btn-primary']")private WebElement searchicon;
 
 public void clickonadminuser()
 {
 	adminuserbutton.click();
 }
-} 
+public void newuser()
+{
+	addnewusericon.click();
+}
+public void search()
+{
+	searchicon.click();
+}
+}  
