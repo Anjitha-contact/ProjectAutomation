@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>GrocceryApplication</name>
+=======
+	<name>AutomationCourse</name>
+>>>>>>> b94f730fb8add2d398aac6b777116b3f17ddd9a8
 	<comment></comment>
 	<projects>
 	</projects>
