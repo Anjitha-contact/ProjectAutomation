@@ -12,7 +12,7 @@ import utilities.GrocceryExcelUtilities;
 
 public class LoginTest extends  Base{
 	
-	@Test
+	@Test(priority=1,description ="sucessful user login with valid credential")
 	public void verifyLoginWithValidCredentials() throws IOException {
 		String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
 		String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
@@ -24,7 +24,7 @@ public class LoginTest extends  Base{
 
 	}
 
-	@Test
+	@Test(priority=2,description ="sucessful user login with valid password")
 	public void verifyLoginWithaInvalidUsernameAndValidPassword() throws IOException {
 		String username = GrocceryExcelUtilities.getStringData(2, 0, "loginsheet");
 		String password = GrocceryExcelUtilities.getStringData(2, 1, "loginsheet");
@@ -35,7 +35,7 @@ public class LoginTest extends  Base{
 		login.clickSigin();
 	}
 	
-	@Test
+	@Test(priority=3,description ="sucessful user login with valid username")
 	public void verifyLoginWithValidUsernameAndInvalidPassword() throws IOException {
 
 		String username = GrocceryExcelUtilities.getStringData(3, 0, "loginsheet");
@@ -47,7 +47,7 @@ public class LoginTest extends  Base{
 		login.clickonRemeberMe();
 		login.clickSigin();
 	}
-	@Test
+	@Test(priority=4,description ="sucessful user login with invalid credential")
 	public void verifyLoginWithInvalidUsernameAndInvalidPassword() throws IOException
 	{
 		String username = GrocceryExcelUtilities.getStringData(4, 0, "loginsheet");

@@ -4,10 +4,21 @@
   <artifactId>GrocceryApplication</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
+  <dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.9</version>
+		</dependency>
+
   	<dependency>
   		<groupId>com.obsqura</groupId>
   		<artifactId>AutomationCourse</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>0.15</version>
+		</dependency>
   </dependencies>
 </project>
