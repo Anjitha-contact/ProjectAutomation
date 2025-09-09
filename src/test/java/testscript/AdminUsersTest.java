@@ -7,11 +7,10 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
-import pages.AdminUsersPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.AdminUsersPage;
 import utilities.GrocceryExcelUtilities;
-import utilities.RandomDataUtility;
 
 public class AdminUsersTest  extends Base {
 	
@@ -27,7 +26,6 @@ public class AdminUsersTest  extends Base {
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
 		login.clickSigin();
-		
 		
 		AdminUsersPage adminuser=new AdminUsersPage(driver);
 		adminuser.clickonadminuser();

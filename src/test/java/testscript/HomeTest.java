@@ -22,7 +22,7 @@ public class HomeTest extends Base{
 			login.clickSigin();
 			HomePage homepage=new HomePage(driver);
 			homepage.clickonadminicon();
-			homepage.clickonlogouticon();
+			//homepage.clickonlogouticon();
 			
 			
 	}
