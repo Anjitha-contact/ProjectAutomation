@@ -1,5 +1,6 @@
 package utilities;
 
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
@@ -14,9 +15,10 @@ public class ExtendReportUtility {
 	extentReports.attachReporter(reporter);
 
 	extentReports.setSystemInfo("Organization", "Obsqura");
-	extentReports.setSystemInfo("Name", " Anji"); // provides context of the report
+	extentReports.setSystemInfo("Name", "Anji"); // provides context of the report
 	return extentReports;
 
 	}
 
 }
+

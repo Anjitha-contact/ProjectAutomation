@@ -18,6 +18,8 @@ public class LoginPage {
 	@FindBy(name="password")private WebElement passwordfield;
 	@FindBy(xpath ="//label[@for='remember']")private WebElement checkbox;
 	@FindBy(xpath="//button[@type='submit']")private WebElement signin;
+	@FindBy(xpath="//p[text()='Dashboard']")private WebElement dashboard;
+	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement invalid;
 
 	public void enterUserNameonUsernameField(String admin)
 	{
@@ -35,5 +37,12 @@ public class LoginPage {
 	{
 		signin.click();
 	}
-
+	public boolean isDashboardDisplayed()
+	{
+		return dashboard.isDisplayed();
+	}
+public boolean invalidmessage()
+{
+	return invalid.isDisplayed();
+}
 }

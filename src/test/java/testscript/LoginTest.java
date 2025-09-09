@@ -1,6 +1,7 @@
 package testscript;
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
@@ -18,7 +19,8 @@ public class LoginTest extends  Base{
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
 		login.clickSigin();
-
+		boolean dashboardDisplay=login.isDashboardDisplayed();
+		Assert.assertTrue(dashboardDisplay,"User couldn't login with valid credential");
 	}
 
 	@Test(priority=2,description ="sucessful user login with valid password")
@@ -30,6 +32,11 @@ public class LoginTest extends  Base{
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
 		login.clickSigin();
+		
+		
+		boolean invalid=login.invalidmessage();
+		Assert.assertTrue(invalid, "User can  login with Invalid Username and valid password");
+		
 	}
 	
 	@Test(priority=3,description ="sucessful user login with valid username")
