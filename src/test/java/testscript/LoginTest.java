@@ -1,26 +1,29 @@
 package testscript;
 import java.io.IOException;
 
+import org.apache.commons.math3.analysis.function.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Constants.Contants;
 import automationcore.Base;
 import pages.LoginPage;
 import utilities.GrocceryExcelUtilities;
 
 public class LoginTest extends  Base{
 	
-	@Test(priority=1,description ="sucessful user login with valid credential")
+	@Test(priority=1,description ="sucessful user login with valid credential",groups= {"smoke"},retryAnalyzer=retryAnalyzer.Retry.class)
 	public void verifyLoginWithValidCredentials() throws IOException {
-		String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
+		String username = GrocceryExcelUtilities.getStringData(1, 10, "loginsheet");
 		String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
+		
 		LoginPage login = new LoginPage(driver);
 		login.enterUserNameonUsernameField(username);
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
 		login.clickSigin();
 		boolean dashboardDisplay=login.isDashboardDisplayed();
-		Assert.assertTrue(dashboardDisplay,"User couldn't login with valid credential");
+		Assert.assertTrue(dashboardDisplay,Contants.VALIDCREDENTIALERROR);
 	}
 
 	@Test(priority=2,description ="sucessful user login with valid password")
@@ -35,7 +38,7 @@ public class LoginTest extends  Base{
 		
 		
 		boolean invalid=login.invalidmessage();
-		Assert.assertTrue(invalid, "User can  login with Invalid Username and valid password");
+		Assert.assertTrue(invalid,Contants.INVALIDUSERERROR);
 		
 	}
 	
@@ -50,8 +53,13 @@ public class LoginTest extends  Base{
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
 		login.clickSigin();
+		
+		boolean invalid=login.invalidmessage();
+		Assert.assertTrue(invalid, Contants.INVALIDPASSWORDERROR);
+		
+		
 	}
-	@Test(priority=4,description ="sucessful user login with invalid credential")
+	@Test(priority=4,description ="sucessful user login with invalid credential",groups= {"smoke"})
 	public void verifyLoginWithInvalidUsernameAndInvalidPassword() throws IOException
 	{
 		String username = GrocceryExcelUtilities.getStringData(4, 0, "loginsheet");
@@ -61,6 +69,9 @@ public class LoginTest extends  Base{
 		login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
 		login.clickSigin();
+		boolean invalid=login.invalidmessage();
+		Assert.assertTrue(invalid, Contants.INVALIDCREDENTIALERROR);
+		
 	}
 }
 

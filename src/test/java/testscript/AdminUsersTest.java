@@ -4,8 +4,10 @@ package testscript;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Constants.Contants;
 import automationcore.Base;
 import pages.HomePage;
 import pages.LoginPage;
@@ -42,11 +44,11 @@ public class AdminUsersTest  extends Base {
 		//RandomDataUtility random=new RandomDataUtility();
 		//String adminUsername=random.createRandomUsername();
 		//String adimPassword=random.createRandomPassword();
-		
-		
+	    boolean isHeadlineDisplayed = adminuser.userpageHeadline();
+	    Assert.assertTrue(isHeadlineDisplayed,Contants.ADDNEWUSERERROR);
 		
 }
-	@Test
+	@Test(retryAnalyzer=retryAnalyzer.Retry.class)
 public void verifywhetherUserIsableSearchOnNewUser() throws IOException
 {
 	String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
@@ -66,6 +68,8 @@ public void verifywhetherUserIsableSearchOnNewUser() throws IOException
 		adminuser.selectUsertypeSearch();
 		adminuser.searchOnsearch();
 		
+		boolean actioniconisDisplayed=adminuser.userAction();
+		Assert.assertTrue(actioniconisDisplayed,Contants.ADDNEWUSERERROR );
 		
 		
 }

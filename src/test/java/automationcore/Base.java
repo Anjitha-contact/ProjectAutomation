@@ -5,26 +5,51 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.ScreenShotUtilities;
 
 
 public class Base {
 	public  WebDriver driver;
 	
-	@BeforeMethod
-	
-	public void intializeBrowser()
+	@BeforeMethod(alwaysRun=true)
+	@Parameters("browser")
+	public void intializeBrowser(String browser) throws Exception
 	{
-		driver=new ChromeDriver();
+		if(browser.equalsIgnoreCase("chrome")) 
+		{
+			driver=new ChromeDriver();
+		}
+		else if(browser.equalsIgnoreCase("edge"))
+		{
+			WebDriverManager.edgedriver()
+			.clearResolutionCache()
+			.forceDownload()
+			.setup();
+			
+			driver=new EdgeDriver();
+		}
+		else if(browser.equalsIgnoreCase("firefox")) 
+		{
+			driver=new FirefoxDriver();
+		}
+		else
+		{
+			throw new Exception("Invalid browser");
+		}
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		// implicitlyWait is a mthd to apply implicit wait,Duration is a class
 	}
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	
 	public void driverQuit(ITestResult iTestResult) throws IOException {
 
@@ -33,7 +58,7 @@ public class Base {
 			ScreenShotUtilities screenShot=new ScreenShotUtilities();
 			screenShot.getScreenshot(driver, iTestResult.getName());
 		}
-		//driver.quit();
+		driver.quit();
 
 	
 

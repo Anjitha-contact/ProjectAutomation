@@ -2,8 +2,10 @@ package testscript;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Constants.Contants;
 import automationcore.Base;
 import pages.LoginPage;
 import pages.ManageNewsPage;
@@ -34,6 +36,9 @@ public void verifyWheatherUserIsAbleToAddNewNews() throws IOException
 		news.enterNewsTitleInTextBox(title);
 		news.clickOnSaveButton();
 		
+		
+		boolean isHeadingDisplayed = news.headingnews();
+	    Assert.assertTrue(isHeadingDisplayed,Contants.ADDNEWUSERERROR );
 }
 @Test
 public void verifySearchNewNewsButton() throws IOException
@@ -52,7 +57,17 @@ news.clickOnSearchButton();
 String Title=GrocceryExcelUtilities.getStringData(1,0,"ManageNewsPage");
 news.enterNewsTitleInSearchBox(Title);
 news.clickOnSearchResult();
+
+
+
+//boolean isSearchPageDisplayed = news.searchnews();
+//Assert.assertTrue(isSearchPageDisplayed,Contants.SEARCHNEWSNOTFOUND);
+
 }
+
+
+
+
 @Test
 public void verifyResetBottonFunctionality() throws IOException
 {
@@ -68,6 +83,10 @@ public void verifyResetBottonFunctionality() throws IOException
 		ManageNewsPage news=new ManageNewsPage(driver);
 		news.goToManageNewsPage();
 		news.clickOnRestButton();
+		
+		//boolean isSearchtabDisplayed = news.searchnews();
+		//Assert.assertTrue(isSearchtabDisplayed,Contants.RESETBUTTONERROR);
+		
 }
 
 }

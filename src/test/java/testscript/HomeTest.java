@@ -1,8 +1,10 @@
 package testscript;
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Constants.Contants;
 import automationcore.Base;
 import pages.HomePage;
 import pages.LoginPage;
@@ -23,6 +25,9 @@ public class HomeTest extends Base{
 			HomePage homepage=new HomePage(driver);
 			homepage.clickonadminicon();
 			//homepage.clickonlogouticon();
+			
+			boolean adminicon=homepage.adminDisplay();
+			Assert.assertTrue(adminicon,Contants.HOMEPAGEISNOTDISPLAYED);
 			
 			
 	}

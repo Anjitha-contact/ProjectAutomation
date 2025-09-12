@@ -43,5 +43,11 @@
       <artifactId>AutomationCourse</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+  <groupId>io.github.bonigarcia</groupId>
+  <artifactId>webdrivermanager</artifactId>
+  <version>6.2.0</version> <!-- Updated version -->
+  <scope>test</scope>       <!-- Optional: can use compile or test as needed -->
+</dependency>
   </dependencies>
 </project>

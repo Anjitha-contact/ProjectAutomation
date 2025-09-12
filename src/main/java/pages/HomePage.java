@@ -23,4 +23,8 @@ public class HomePage {
 	{
 		logouticon.click();
 	}
+	public boolean adminDisplay()
+	{
+		return adminicon.isDisplayed();
+	}
 }

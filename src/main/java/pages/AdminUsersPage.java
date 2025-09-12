@@ -26,6 +26,8 @@ public AdminUsersPage(WebDriver driver)
 @FindBy(xpath="//input[@class='form-control']") private WebElement searchuser;
 @FindBy(xpath="//select[@name='ut']")private WebElement selectusertype;
 @FindBy(xpath="//button[@name='Search']")private WebElement search;
+@FindBy(xpath="//h1[@class='m-0 text-dark']")private WebElement headline;
+@FindBy(xpath="//th[@style='width:18%']")private WebElement actionicon;
 
 public void clickonadminuser()
 {
@@ -68,5 +70,14 @@ public void searchOnsearch()
 public void saveonAdminuser()
 {
 	save.click();
+}
+public boolean userpageHeadline()
+{
+	return headline.isDisplayed();
+}
+public boolean userAction()
+{
+	return actionicon.isDisplayed();
+	
 }
 }  
