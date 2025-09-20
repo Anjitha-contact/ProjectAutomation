@@ -21,21 +21,25 @@ public class LoginPage {
 	@FindBy(xpath="//p[text()='Dashboard']")private WebElement dashboard;
 	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")private WebElement invalid;
 
-	public void enterUserNameonUsernameField(String admin)
+	public LoginPage enterUserNameonUsernameField(String admin)
 	{
 		usernamefield.sendKeys(admin);
+		return this;
 	}
-	public void enterPasswordinPasswordField(String admin)
+	public LoginPage enterPasswordinPasswordField(String password)
 	{
-		passwordfield.sendKeys(admin);
+		passwordfield.sendKeys(password);
+		return this;
 	}
-	public void clickonRemeberMe()
+	public LoginPage clickonRemeberMe()
 	{
 		checkbox.click();
+		return this;
 	}
-	public void clickSigin()
+	public HomePage clickSigin()
 	{
 		signin.click();
+		return new HomePage(driver);
 	}
 	public boolean isDashboardDisplayed()
 	{
@@ -43,6 +47,7 @@ public class LoginPage {
 	}
 public boolean invalidmessage()
 {
+	
 	return invalid.isDisplayed();
 }
 }

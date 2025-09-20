@@ -16,18 +16,27 @@ import utilities.GrocceryExcelUtilities;
 
 public class AdminUsersTest  extends Base {
 	
+	HomePage homepage;
+	AdminUsersPage adminUserpage;
+	
+	
+	
 	@Test
 	public void verifywhetherUserIsableToClickOnAddNewUser() throws IOException
 	{
 		String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
-	String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
+	    String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
 		
 		
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameonUsernameField(username);
-		login.enterPasswordinPasswordField(password);
-		login.clickonRemeberMe();
-		login.clickSigin();
+		//login.enterUserNameonUsernameField(username);
+		//login.enterPasswordinPasswordField(password);
+		login.enterUserNameonUsernameField(username).enterPasswordinPasswordField(password);
+		//login.clickonRemeberMe();
+		//login.clickSigin();
+		homepage=login.clickSigin();
+		
+		
 		
 		AdminUsersPage adminuser=new AdminUsersPage(driver);
 		adminuser.clickonadminuser();
@@ -35,15 +44,19 @@ public class AdminUsersTest  extends Base {
 		
 		String adminUserName=GrocceryExcelUtilities.getStringData(1, 0, "AdminuserPage");
 	    String adminPassword=GrocceryExcelUtilities.getStringData(1,1, "AdminuserPage");
-	    adminuser.enterUserNameonUserNameField(adminUserName);
-		adminuser.enterPasswordInPasswordField(adminPassword);
+	    
+	    //adminuser.enterUserNameonUserNameField(adminUserName);
+		//adminuser.enterPasswordInPasswordField(adminPassword);
+	    adminuser.newuser().enterUserNameonUserNameField(adminUserName).enterPasswordInPasswordField(adminPassword);
 		adminuser.selectUserType();
 		adminuser.saveonAdminuser();
+		
 		
 	    
 		//RandomDataUtility random=new RandomDataUtility();
 		//String adminUsername=random.createRandomUsername();
 		//String adimPassword=random.createRandomPassword();
+		
 	    boolean isHeadlineDisplayed = adminuser.userpageHeadline();
 	    Assert.assertTrue(isHeadlineDisplayed,Contants.ADDNEWUSERERROR);
 		

@@ -45,7 +45,7 @@ ITestListener.super.onTestFailure(result);
 extentTest.get().log(Status.FAIL, "Test Failed");
 extentTest.get().fail(result.getThrowable());
 
-WebDriver driver = null;
+WebDriver driver =null;
 
 String testMethodName = result.getMethod().getMethodName();
 
@@ -69,8 +69,8 @@ e.printStackTrace();
 }
 
 try {
-driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
-.get(result.getInstance());
+	driver = (WebDriver) result.getTestClass().getRealClass().getField("driver")
+	        .get(result.getInstance());
 } catch (Exception e) {
 }
 }

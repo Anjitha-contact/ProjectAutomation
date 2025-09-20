@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
 
 	public WebDriver driver;
+	
 	public HomePage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
@@ -15,13 +16,15 @@ public class HomePage {
 	@FindBy(xpath = "//a[@data-toggle='dropdown']")private WebElement adminicon;
 	@FindBy(xpath = "//i[@class='ace-icon fa fa-power-off']")private WebElement logouticon;
 	
-	public void clickonadminicon()
+	public HomePage clickonadminicon()
 	{
 		adminicon.click();
+		return this;
 	}
-	public void clickonlogouticon()
+	public LoginPage clickonlogouticon()
 	{
 		logouticon.click();
+		return new LoginPage(driver);
 	}
 	public boolean adminDisplay()
 	{

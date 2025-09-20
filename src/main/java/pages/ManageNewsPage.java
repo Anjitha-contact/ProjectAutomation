@@ -25,37 +25,48 @@ public class ManageNewsPage {
 @FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement heading;
 @FindBy(xpath="//a[@class='page-link']")private WebElement searchpage;
 @FindBy(xpath="//input[@class='form-control']")private WebElement searchtab;
-public void goToManageNewsPage()
+
+
+public ManageNewsPage goToManageNewsPage()
 {
 	managenewspage.click();
+	return this;
 }
-public void newbutton()
+public ManageNewsPage newbutton()
 {
 	addNewButton.click();
+	return this;
 }
-public void enterNewsTitleInTextBox(String Newnews)
+public ManageNewsPage enterNewsTitleInTextBox(String Newnews)
 {
 	textBox.sendKeys(Newnews);
+	return this;
 }
-public void clickOnSaveButton()
+public ManageNewsPage clickOnSaveButton()
 {
 	saveButton.click();
+	return this;
 }
-public void clickOnSearchButton()
+public ManageNewsPage clickOnSearchButton()
 {
 searchNews.click();	
+return this;
+
 }
-public void enterNewsTitleInSearchBox(String Newnews)
+public ManageNewsPage enterNewsTitleInSearchBox(String Newnews)
 {
 	searchTextBox.sendKeys(Newnews);
+	return this;
 }
-public void clickOnSearchResult()
+public ManageNewsPage clickOnSearchResult()
 {
 	searchResult.click();
+	return this;
 }
-public void clickOnRestButton()
+public ManageNewsPage clickOnRestButton()
 {
 	resetButton.click();
+	return this;
 }
 public boolean headingnews()
 {

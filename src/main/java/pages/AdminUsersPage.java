@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+
 public class AdminUsersPage {
 	public WebDriver driver;
 	
@@ -29,47 +31,62 @@ public AdminUsersPage(WebDriver driver)
 @FindBy(xpath="//h1[@class='m-0 text-dark']")private WebElement headline;
 @FindBy(xpath="//th[@style='width:18%']")private WebElement actionicon;
 
-public void clickonadminuser()
+public AdminUsersPage clickonadminuser()
 {
 	adminuserbutton.click();
+	return this;
 }
-public void newuser()
+public AdminUsersPage newuser()
 {
 	addnewusericon.click();
+	return this;
 }
-public void enterUserNameonUserNameField(String Anjitha)
+public AdminUsersPage enterUserNameonUserNameField(String Anjitha)
 {
 	username.sendKeys(Anjitha);
+	return this;
+	
 }
-public void enterPasswordInPasswordField(String anji)
+public AdminUsersPage enterPasswordInPasswordField(String anji)
 {
 	password.sendKeys(anji);
+	return this;
+	
 }
-public void selectUserType()
+public AdminUsersPage selectUserType()
 {
-	Select select=new Select(usertype);
-	select.selectByIndex(2);
+	PageUtility page=new PageUtility();
+	page.selectUserType(usertype, 2);
+	return this;
+	//call it from page class
+	//Select select=new Select(usertype);
+	//select.selectByIndex(2);
 }
-public void enterUserNameonSearchBox(String Anjitha)
+public AdminUsersPage enterUserNameonSearchBox(String Anjitha)
 {
 	searchuser.sendKeys(Anjitha);
+	return this;
 }
-public void selectUsertypeSearch()
+public AdminUsersPage selectUsertypeSearch()
 {
 	Select select=new Select(selectusertype);
 	select.selectByIndex(2);
+	return this;
 }
-public void search()
+public AdminUsersPage search()
 {
 	searchicon.click();
+	return this;
 }
-public void searchOnsearch()
+public AdminUsersPage searchOnsearch()
 {
 	search.click();
+	return this;
 }
-public void saveonAdminuser()
+public AdminUsersPage saveonAdminuser()
 {
 	save.click();
+	return this;
 }
 public boolean userpageHeadline()
 {

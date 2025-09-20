@@ -8,6 +8,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import Constants.Contants;
+
 public class GrocceryExcelUtilities {
 	static FileInputStream f; // class in java to get the excel access
 	static XSSFWorkbook wb; // inbuilt class to get details from workbook
@@ -15,7 +17,7 @@ public class GrocceryExcelUtilities {
 
 	public static String getStringData(int a, int b, String loginsheet) throws IOException {
 		f = new FileInputStream(
-				"C:\\Users\\Abhijeeth\\OneDrive\\Documents\\Projecttest.xlsx\\");
+				Contants.EXCELPATH);
 		wb = new XSSFWorkbook(f);// from file
 		sh = wb.getSheet(loginsheet); // used to get the details from sheet
 		XSSFRow r = sh.getRow(a); // to get data from row
@@ -24,8 +26,8 @@ public class GrocceryExcelUtilities {
 	}
 
 	public static String getIntegerData(int a, int b,String loginsheet) throws IOException {
-		f = new FileInputStream(
-				"C:\\Users\\Abhijeeth\\OneDrive\\Documents\\Projecttest.xlsx\\");
+		f = new FileInputStream(Contants.EXCELPATH);
+				;
 		wb = new XSSFWorkbook(f);// that reads Excel files (.xlsx) using Apache POI.
 		sh = wb.getSheet(loginsheet);
 		XSSFRow r = sh.getRow(a);
