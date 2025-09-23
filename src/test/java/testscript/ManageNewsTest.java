@@ -45,6 +45,7 @@ public void verifySearchNewNewsButton() throws IOException
 {String username = ExcelUtilities.getStringData(1, 0, "loginsheet");
 String password = ExcelUtilities.getStringData(1, 1, "loginsheet");
 LoginPage login = new LoginPage(driver);
+
 login.enterUserNameonUsernameField(username);
 login.enterPasswordinPasswordField(password);
 login.clickonRemeberMe();
@@ -55,13 +56,13 @@ news.goToManageNewsPage();
 news.clickOnSearchButton();
 
 String Title=ExcelUtilities.getStringData(1,0,"ManageNewsPage");
-news.enterNewsTitleInSearchBox(Title);
-news.clickOnSearchResult();
+news.enterNewsTitleInSearchBox(Title).clickOnSearchResult();
+//news.clickOnSearchResult();
 
 
 
-//boolean isSearchPageDisplayed = news.searchnews();
-//Assert.assertTrue(isSearchPageDisplayed,Contants.SEARCHNEWSNOTFOUND);
+boolean isSearchPageDisplayed = news.searchnews();
+Assert.assertTrue(isSearchPageDisplayed,Contants.SEARCHNEWSNOTFOUND);
 
 }
 
@@ -75,17 +76,17 @@ public void verifyResetBottonFunctionality() throws IOException
 	String username = ExcelUtilities.getStringData(1, 0, "loginsheet");
 	String password = ExcelUtilities.getStringData(1, 1, "loginsheet");
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameonUsernameField(username);
-		login.enterPasswordinPasswordField(password);
+		login.enterUserNameonUsernameField(username).enterPasswordinPasswordField(password).clickonRemeberMe().clickSigin();
+		/*login.enterPasswordinPasswordField(password);
 		login.clickonRemeberMe();
-		login.clickSigin();	
+		login.clickSigin();	*/
 		
 		ManageNewsPage news=new ManageNewsPage(driver);
-		news.goToManageNewsPage();
-		news.clickOnRestButton();
+		news.goToManageNewsPage().clickOnRestButton();
+		//news.clickOnRestButton();
 		
-		//boolean isSearchtabDisplayed = news.searchnews();
-		//Assert.assertTrue(isSearchtabDisplayed,Contants.RESETBUTTONERROR);
+		boolean isSearchtabDisplayed = news.searchnews();
+		Assert.assertTrue(isSearchtabDisplayed,Contants.RESETBUTTONERROR);
 		
 }
 
