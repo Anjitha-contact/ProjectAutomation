@@ -3,6 +3,7 @@ package utilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class PageUtility {
@@ -23,5 +24,15 @@ public class PageUtility {
 		js.executeScript("window.scrollBy(xAxis,yAxis)", "");
 	}
 
+	public void mouseHoverOnElement(WebDriver driver, WebElement element) {
+		Actions action = new Actions(driver);
+		action.moveToElement(element).build().perform();
+	}
 
+	public void dragAndDropAnElement(WebDriver driver, WebElement dragMe, WebElement dropMe) {
+		Actions action = new Actions(driver);
+		action.dragAndDrop(dragMe, dropMe).build().perform();
+	}
+	
+	
 }

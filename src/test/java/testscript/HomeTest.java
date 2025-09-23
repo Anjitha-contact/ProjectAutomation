@@ -8,7 +8,8 @@ import Constants.Contants;
 import automationcore.Base;
 import pages.HomePage;
 import pages.LoginPage;
-import utilities.GrocceryExcelUtilities;
+import utilities.ExcelUtilities;
+
 
 public class HomeTest extends Base{
 	
@@ -17,8 +18,8 @@ public class HomeTest extends Base{
 @Test
 	public void verifywhetherUserIsableToLogOut() throws IOException {
 	
-		    String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
-			String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
+		    String username = ExcelUtilities.getStringData(1, 0, "loginsheet");
+			String password = ExcelUtilities.getStringData(1, 1, "loginsheet");
 			
 			LoginPage login = new LoginPage(driver);
 			//login.enterUserNameonUsernameField(username);

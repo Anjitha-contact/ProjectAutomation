@@ -9,8 +9,8 @@ import Constants.Contants;
 import automationcore.Base;
 import pages.LoginPage;
 import pages.ManageNewsPage;
+import utilities.ExcelUtilities;
 
-import utilities.GrocceryExcelUtilities;
 import utilities.RandomDataUtility;
 
 public class ManageNewsTest extends Base{
@@ -18,8 +18,8 @@ public class ManageNewsTest extends Base{
 @Test
 public void verifyWheatherUserIsAbleToAddNewNews() throws IOException
 {
-	String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
-	String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
+	String username = ExcelUtilities.getStringData(1, 0, "loginsheet");
+	String password = ExcelUtilities.getStringData(1, 1, "loginsheet");
 		LoginPage login = new LoginPage(driver);
 		login.enterUserNameonUsernameField(username);
 		login.enterPasswordinPasswordField(password);
@@ -42,8 +42,8 @@ public void verifyWheatherUserIsAbleToAddNewNews() throws IOException
 }
 @Test
 public void verifySearchNewNewsButton() throws IOException
-{String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
-String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
+{String username = ExcelUtilities.getStringData(1, 0, "loginsheet");
+String password = ExcelUtilities.getStringData(1, 1, "loginsheet");
 LoginPage login = new LoginPage(driver);
 login.enterUserNameonUsernameField(username);
 login.enterPasswordinPasswordField(password);
@@ -54,7 +54,7 @@ ManageNewsPage news=new ManageNewsPage(driver);
 news.goToManageNewsPage();
 news.clickOnSearchButton();
 
-String Title=GrocceryExcelUtilities.getStringData(1,0,"ManageNewsPage");
+String Title=ExcelUtilities.getStringData(1,0,"ManageNewsPage");
 news.enterNewsTitleInSearchBox(Title);
 news.clickOnSearchResult();
 
@@ -72,8 +72,8 @@ news.clickOnSearchResult();
 public void verifyResetBottonFunctionality() throws IOException
 {
 
-	String username = GrocceryExcelUtilities.getStringData(1, 0, "loginsheet");
-	String password = GrocceryExcelUtilities.getStringData(1, 1, "loginsheet");
+	String username = ExcelUtilities.getStringData(1, 0, "loginsheet");
+	String password = ExcelUtilities.getStringData(1, 1, "loginsheet");
 		LoginPage login = new LoginPage(driver);
 		login.enterUserNameonUsernameField(username);
 		login.enterPasswordinPasswordField(password);

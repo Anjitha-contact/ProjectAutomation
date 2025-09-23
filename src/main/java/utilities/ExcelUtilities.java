@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import Constants.Contants;
 
-public class GrocceryExcelUtilities {
+public class ExcelUtilities {
 	static FileInputStream f; // class in java to get the excel access
 	static XSSFWorkbook wb; // inbuilt class to get details from workbook
 	static XSSFSheet sh; // inbuilt class to get details from a sheet of excel
